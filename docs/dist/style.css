@@ -282,12 +282,12 @@ nav .o:hover {
 
 .road-man2 {
   position: absolute; /* 使用绝对定位来精确控制位置 */
-  top: 1000px; /* 根据需求调整位置 */
+  top: 900px; /* 根据需求调整位置 */
   left: 100px;
   width: 18%;
   max-width: 50%; /* 防止树的宽度超过容器 */
   height: auto; /* 保持比例 */
-  transform: scale(0.6); /* 縮小到80% */
+  transform: scale(0.8); /* 縮小到80% */
   transform-origin: center; /* 縮小時從中心開始 */
 }
 
