@@ -410,8 +410,8 @@ nav .o:hover {
     top: 200px;
     left: 700px;
     font-family: 'Noto Sans TC', sans-serif;
-    width: 200px;         /* Increased button width */
-    height: 200px;        /* Increased button height */
+    width: 150px;         /* Increased button width */
+    height: 150px;        /* Increased button height */
     border-radius: 50%;   /* Keeps the button circular */
     display: flex;        /* Centers content inside the button */
     justify-content: center;
@@ -431,8 +431,8 @@ nav .o:hover {
       top: 520px;
       left: 430px;
       font-family: 'Noto Sans TC', sans-serif;
-      width: 200px;         /* 設定按鈕的寬度 */
-      height: 200px;        /* 設定按鈕的高度，與寬度相等 */
+      width: 150px;         /* 設定按鈕的寬度 */
+      height: 150px;        /* 設定按鈕的高度，與寬度相等 */
       border-radius: 50%;   /* 使按鈕變成圓形 */
       display: flex;        /* 使內部元素（例如文字或圖片）居中 */
       justify-content: center;
@@ -452,8 +452,8 @@ nav .o:hover {
       top: 780px;
       left: 900px;
       font-family: 'Noto Sans TC', sans-serif;
-      width: 200px;         /* 設定按鈕的寬度 */
-      height: 200px;        /* 設定按鈕的高度，與寬度相等 */
+      width: 150px;         /* 設定按鈕的寬度 */
+      height: 150px;        /* 設定按鈕的高度，與寬度相等 */
       border-radius: 50%;   /* 使按鈕變成圓形 */
       display: flex;        /* 使內部元素（例如文字或圖片）居中 */
       justify-content: center;
@@ -473,8 +473,8 @@ nav .o:hover {
       top: 930px;
       left: 780px;
       font-family: 'Noto Sans TC', sans-serif;
-      width: 200px;         /* 設定按鈕的寬度 */
-      height: 200px;        /* 設定按鈕的高度，與寬度相等 */
+      width: 150px;         /* 設定按鈕的寬度 */
+      height: 150px;        /* 設定按鈕的高度，與寬度相等 */
       border-radius: 50%;   /* 使按鈕變成圓形 */
       display: flex;        /* 使內部元素（例如文字或圖片）居中 */
       justify-content: center;
@@ -488,8 +488,8 @@ nav .o:hover {
       top: 750px;
       left: 700px;
       font-family: 'Noto Sans TC', sans-serif;
-      width: 200px;         /* 設定按鈕的寬度 */
-      height: 200px;        /* 設定按鈕的高度，與寬度相等 */
+      width: 150px;         /* 設定按鈕的寬度 */
+      height: 150px;        /* 設定按鈕的高度，與寬度相等 */
       border-radius: 50%;   /* 使按鈕變成圓形 */
       display: flex;        /* 使內部元素（例如文字或圖片）居中 */
       justify-content: center;
@@ -509,8 +509,8 @@ nav .o:hover {
       top: 900px;
       left: 1010px;
       font-family: 'Noto Sans TC', sans-serif;
-      width: 200px;         /* 設定按鈕的寬度 */
-      height: 200px;        /* 設定按鈕的高度，與寬度相等 */
+      width: 150px;         /* 設定按鈕的寬度 */
+      height: 150px;        /* 設定按鈕的高度，與寬度相等 */
       border-radius: 50%;   /* 使按鈕變成圓形 */
       display: flex;        /* 使內部元素（例如文字或圖片）居中 */
       justify-content: center;
@@ -659,7 +659,7 @@ p {
 }
 
 #chat-container-morning, #chat-container-evening {
-  margin-top: 70px; /* 控制聊天内容与上方的距离 */
+  margin-top: 40px; /* 控制聊天内容与上方的距离 */
   padding: 10px;
   height: 400px; /* 固定聊天内容高度 */
   overflow-y: auto; /* 启用垂直滚动 */
@@ -888,7 +888,7 @@ input[type="checkbox"]:checked + label.switch-toggle-label:before {
   display: flex;
   position: relative;
   align-items: center; /* 垂直居中 */
-  margin-top: 50px; /* 與聊天室的距離 */
+  margin-top: 20px; /* 與聊天室的距離 */
   padding: 10px;
   border-radius: 6px; /* 圓角 */
   background-color: #f0efe6; /* 背景顏色 */
