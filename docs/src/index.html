@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>農情味</title>
+</head>
+  
+<body>
+   
+  <!###########導覽列########### -->
+ <!-- checkbox控制按鈕 + nav bar -->
+    <input type="checkbox" id="menu-control" />
+    <div class="header">
+      <h1 class="logo">
+        <img src="https://i.imgur.com/uwlq9hJ.png" alt="logo" />
+      </h1>
+      <nav>
+        <a class="g" href="#">食驗事</a>
+        <a class="o" href="#">農情味</a>
+        <a class="g" href="#">呷·嘉常菜</a>
+        <a class="o" href="#">義遊味盡</a>
+      </nav>
+      <!--     漢堡選單 -->
+      <label for="menu-control" class="menu-btn">
+        <span>遠端操控選單</span>
+      </label>
+    </div>
+  
+  <div class="switch-toggle">
+    <input class="switch-toggle-checkbox" type="checkbox" id="pricing-plan-switch" />
+    <label class="switch-toggle-label" for="pricing-plan-switch">
+        <span>早市</span>
+        <span>江厝店黃昏市場</span>
+    </label>
+  </div>
+
+  
+  <div id="content-morning-market" class="market-content active">
+    <div id="road-container">
+      <img id="road-image-morning" src="https://i.imgur.com/Z2xrwM3.png" alt="道路" class="road-image">
+      <img id="road-tree" src="https://i.imgur.com/7PvAszU.png" alt="插圖" class="road-tree">
+      <div class="road-element morning-style button1" data-info="morning-vendor1">
+    <img src="https://i.imgur.com/T2kFEEx.png" alt="攤販1">
+      </div>
+      <div class="road-element morning-style button2" data-info="morning-vendor2">
+      <img src="https://i.imgur.com/UlQXbq9.png" alt="攤販2">
+      </div>
+      <div class="road-element morning-style button3" data-info="morning-vendor3">
+        <img src="https://i.imgur.com/yPQKvuN.png" alt="攤販3">
+      </div>
+      <img id="road-wom" src="https://i.imgur.com/PUf61Ws.png" alt="插圖1" class="road-wom">
+      <img id="road-man" src="https://i.imgur.com/OfnA3LY.png" alt="插圖2" class="road-man">
+      <img id="road-tree3" src="https://i.imgur.com/2yhBOLj.png" alt="插圖4" class="road-tree3">
+      <img id="road-tree2" src="https://i.imgur.com/gk2AjzQ.png" alt="插圖3" class="road-tree2">
+      <img id="road-flo1" src="https://i.imgur.com/d98e0Ga.png" alt="插圖5" class="road-flo1">
+      <img id="road-flo2" src="https://i.imgur.com/GrMMIN0.png" alt="插圖6" class="road-flo2">
+      <img id="road-tree32" src="https://i.imgur.com/2yhBOLj.png" alt="插圖4" class="road-tree32">
+      <img id="road-tree22" src="https://i.imgur.com/gk2AjzQ.png" alt="插圖3" class="road-tree22">
+    </div>
+
+    <div id="modal-morning" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-left info-box">
+          <div class="left-mes">
+            <img id="vendor-image" src="" alt="圖片" class="vendor-image"><br><br>
+            <p id="vendor-name">○○○攤販</p><br>
+            <div class="tag">熱賣商品</div>
+            <p id="vendor-product">小番茄</p>
+            <div class="tag">價格</div>
+            <p id="vendor-price">$30 / 1台斤</p>
+            <div class="tag">上線時間</div>
+            <p id="vendor-time">每天14:00 ~ 16:00</p>
+            <div class="tag">攤販地點</div>
+            <p id="vendor-location">民雄166縣道與工業二路的交叉路口</p>
+              </div>
+        </div>
+
+        <div class="modal-center">
+          <h4>聊天室</h4>
+          <div id="chat-container-morning"></div>
+          <div class="icon-box">
+  <div class="icons">
+    <img src="https://i.imgur.com/VKULmpJ.png" alt="Icon 1" class="icon icon1">
+    <img src="https://i.imgur.com/Ii1MJs5.png" alt="Icon 2" class="icon icon2">
+    <div class="divider"></div>
+    <p id="dynamic-message">這是默認消息</p>
+    <img src="https://i.imgur.com/SSOEvI1.png" alt="Icon 3" class="icon icon3">
+  </div>
+</div>
+
+        </div>
+
+        <div class="modal-right info-box">
+          <h4>共同好友</h4><p></p>
+          <ul id="friends-list-morning" class="friends-list"></ul>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div id="content-evening-market" class="market-content hidden">
+    <div id="road-container">
+      <img id="road-image-evening" src="https://i.imgur.com/Z2xrwM3.png" alt="道路" class="road-image">
+      <img id="road-tree1" src="https://i.imgur.com/7PvAszU.png" alt="插圖" class="road-tree1">
+      <div class="road-element evening-style button1" data-info="evening-vendor1">
+        <img src="https://i.imgur.com/8o3Ey8P.png" alt="攤販1">
+      </div>
+      <div class="road-element evening-style button2" data-info="evening-vendor2">
+        <img src="https://i.imgur.com/iGc4hIe.png" alt="攤販2">
+      </div>
+      <div class="road-element evening-style button3e" data-info="evening-vendor3">
+        <img src="https://i.imgur.com/BRuXNsz.png" alt="攤販3">
+      </div>
+      <div class="road-element evening-style button4e" data-info="evening-vendor4">
+        <img src="https://i.imgur.com/WaYNgB2.png" alt="攤販4">
+      </div>
+      <img id="road-wom2" src="https://i.imgur.com/ErORyyA.png" alt="插圖1" class="road-wom2">
+      <img id="road-man2" src="https://i.imgur.com/Z84X2HZ.png" alt="插圖2" class="road-man2">
+      <img id="road-tree5" src="https://i.imgur.com/2yhBOLj.png" alt="插圖4" class="road-tree5">
+      <img id="road-tree4" src="https://i.imgur.com/gk2AjzQ.png" alt="插圖3" class="road-tree4">
+      <img id="road-flo1" src="https://i.imgur.com/d98e0Ga.png" alt="插圖5" class="road-flo1">
+      <img id="road-flo2" src="https://i.imgur.com/GrMMIN0.png" alt="插圖6" class="road-flo2">
+      <img id="road-man3" src="https://i.imgur.com/PKhmRjq.png" alt="插圖7" class="road-man3">
+    </div>
+
+    <div id="modal-evening" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-left info-box">
+          <div class="left-mes">
+            <img id="vendor-image-evening" src="" alt="圖片" class="vendor-image"><br><br>
+            <p id="vendor-name-evening">○○○攤販</p><br>
+            <div class="tag">熱賣商品</div>
+            <p id="vendor-product-evening">小番茄</p>
+            <div class="tag">價格</div>
+            <p id="vendor-price-evening">$30 / 1台斤</p>
+            <div class="tag">上線時間</div>
+            <p id="vendor-time-evening">每天14:00 ~ 16:00</p>
+            <div class="tag">攤販地點</div>
+            <p id="vendor-location-evening">民雄166縣道與工業二路的交叉路口</p>
+              </div>
+        </div>
+
+        <div class="modal-center">
+          <h4>聊天室</h4>
+          <div id="chat-container-evening"></div>
+          <div class="icon-box">
+            <div class="icons">
+              <img src="https://i.imgur.com/VKULmpJ.png" alt="Icon 1" class="icon icon1">
+              <img src="https://i.imgur.com/Ii1MJs5.png" alt="Icon 2" class="icon icon2">
+            <div class="divider"></div>
+     <p id="dynamic-message">好!謝謝阿姨~</p>
+    <img src="https://i.imgur.com/SSOEvI1.png" alt="Icon 3" class="icon icon3">
+  </div>
+</div>
+
+        </div>
+
+        <div class="modal-right info-box">
+          <h4>共同好友</h4>
+          <ul id="friends-list-evening" class="friends-list"></ul><br>
+        </div>
+      </div>
+    </div>
+  </div>  
+
+</body>
+</html>

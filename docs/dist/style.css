@@ -1,0 +1,934 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+TC:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: "Noto Sans JP", serif;
+  /* font: normal 100% Helvetica; */
+}
+
+/* 滾動條樣式################################## */
+/* 整個滾動條 */
+::-webkit-scrollbar {
+  width: 4px; /* 滾動條的寬度 */
+  height: 4px; /* 滾動條的高度 */
+}
+
+/* 滾動條的背景 */
+::-webkit-scrollbar-track {
+  background: rgba(69, 54, 46, 1);
+  /* border-radius: 50px;  */
+  /* 圆角 */
+}
+
+/* 滾動條的滑塊 */
+::-webkit-scrollbar-thumb {
+  background: #BC3E1E; /* 滑塊顏色 */
+  border-radius: 50px; /* 圆角 */
+}
+
+/* 滑塊在懸停時的顏色 */
+::-webkit-scrollbar-thumb:hover {
+  background: #b9cdcd; /* 懸停時的顏色 */
+}
+
+/* 滾動條的邊距 */
+::-webkit-scrollbar-corner {
+  background: #f1f1f1; /* 角落的顏色 */
+}
+
+/* navbar --------------------------- */
+.header {
+  padding: 0px;
+  background-color: #f0efe6;
+  width: 100%;
+  height: 60px;
+  /*   display:flex; */
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 50;
+}
+.logo {
+  /* border: #79b95a 2px solid; */
+  padding:8px 4px;
+}
+.logo img {
+  height: 50px;
+}
+nav a {
+  display: block;
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-weight: bold;
+  font-size: 14px;
+}
+nav .g:hover {
+  background-color: #79b95a;
+  color: #f0efe6;
+}
+nav .o:hover {
+  background-color: #BC3E1E;
+  color: #f0efe6;
+}
+/* ######################電腦版導覽列####################### */
+@media screen and (min-width: 768px) {
+  #menu-control, .menu-btn {
+    display: none;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  nav {
+    /*     margin:-10px 0; */
+    position: relative;
+    left: 0;
+    display: flex !important;
+    height: auto;
+    width: auto;
+    padding: 0 40px;
+  }
+  nav a {
+    padding: 0px 16px;
+    color: #3c4040;
+    line-height: 60px;
+  }
+  nav a:hover {
+    text-decoration: none;
+  }
+}
+/* ######################手機版導覽列####################### */
+@media screen and (max-width: 767.5px) {
+  #menu-control {
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    /*   z-index:3; */
+  }
+  nav {
+    box-sizing: border-box;
+    width: 200px;
+    height: calc(100vh - 40px);
+    background-color: #f0efe6;
+    position: absolute;
+    top: 60px;
+    right: -100%;
+    padding: 40px 0px;
+    transition: 0.5s;
+    opacity: 95%;
+  }
+  nav a {
+    line-height: 3.2;
+    padding: 0px 40px;
+    color: #3c4040;
+    /*     border-bottom: #79B95A 2px solid; */
+  }
+  nav a:hover {
+    text-decoration: none;
+  }
+  .logo img {
+    height: 45px !important;
+  }
+  .menu-btn {
+    /*   background-color: #0f0; */
+    width: 30px;
+    height: 30px;
+    margin: 0px 15px;
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  /* 漢堡橫條 偽元素 */
+  .menu-btn::before {
+    content: "";
+    width: 28px;
+    height: 2px;
+    background-color: #3c4040;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    box-shadow: 5px 10px 0px #000;
+  }
+  .menu-btn span {
+    display: block;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+  }
+  /* 按鈕控制 */
+  #menu-control:checked~.header nav {
+    right: 0;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .navbar-menu {
+    float: none;
+    display: none;
+  }
+  .navbar-menu.active {
+    display: block;
+  }
+  .navbar-menu > li {
+    display: block;
+  }
+  .button-toggle {
+    display: inline-block;
+  }
+}
+
+
+
+
+/* 針對早市與黃昏市場設置的區塊背景 */
+#content-morning-market {
+  background-color: #6F985C; /* 早市背景顏色 */
+  min-height: 135vh; /* 保證覆蓋整個視窗高度 */
+  display: none;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+#content-evening-market {
+  background-color: #E9B453; /* 黃昏市場背景顏色 */
+  min-height: 135vh; /* 保證覆蓋整個視窗高度 */
+  display: none;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+#content-morning-market.active,
+#content-evening-market.active {
+  display: block;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+#road-container {
+  position: relative;
+  width: 100%;
+  height: auto; /* 自动调整高度以适应内容 */
+  background: transparent;
+  overflow: visible; /* 确保内容不被裁切 */
+}
+
+.road-image {
+  position: relative;
+  top: 100px; /* 调整位置 */
+  left: 100px; /* 调整水平位置 */
+  transform: scale(1); /* 放大图片 1.5 倍 */
+  transform-origin: center; /* 从中心点放大 */
+}
+
+
+.road-tree {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 70px; /* 根据需求调整位置 */
+  left: 80px;
+  width: 15%;
+  max-width: 100%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.6); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-tree1 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 150px; /* 根据需求调整位置 */
+  left: 1000px;
+  width: 10%;
+  max-width: 100%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.6); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-wom {
+  position: absolute;
+  top: 550px;
+  left: 1350px;
+  width: 20%;
+  height: auto;
+  transform: scale(0.5); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+
+.road-wom2 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 530px; /* 根据需求调整位置 */
+  left: 1100px;
+  width: 20%;
+  max-width: 200px; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.4); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-man {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 800px; /* 根据需求调整位置 */
+  left: 300px;
+  width: 18%;
+  max-width: 60%; /* 防止树的宽度超过容器 */
+  height: auto;
+  transform: scale(0.4); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-man2 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 800px; /* 根据需求调整位置 */
+  left: 150px;
+  width: 18%;
+  max-width: 50%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.6); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-man3 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 900px; /* 根据需求调整位置 */
+  left: 1200px;
+  width: 18%;
+  max-width: 50%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.8); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-tree2 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 200px; /* 根据需求调整位置 */
+  left: 950px;
+  width: 18%;
+  max-width: 100%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.6); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-tree3 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 110px; /* 根据需求调整位置 */
+  left: 1110px;
+  width: 10%;
+  max-width: 100%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.6); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-tree22 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 890px; /* 根据需求调整位置 */
+  left: 1150px;
+  width: 18%;
+  max-width: 100%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.6); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-tree32 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 800px; /* 根据需求调整位置 */
+  left: 1310px;
+  width: 10%;
+  max-width: 100%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.6); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-tree4 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 150px; /* 根据需求调整位置 */
+  left: 80px;
+  width: 15%;
+  max-width: 100%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.6); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-tree5 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 100px; /* 根据需求调整位置 */
+  left: 200px;
+  width: 10%;
+  max-width: 100%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+  transform: scale(0.6); /* 縮小到80% */
+  transform-origin: center; /* 縮小時從中心開始 */
+}
+
+.road-flo1 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 620px; /* 根据需求调整位置 */
+  left: 1080px;
+  width: 5%;
+  max-width: 100%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+}
+
+.road-flo2 {
+  position: absolute; /* 使用绝对定位来精确控制位置 */
+  top: 780px; /* 根据需求调整位置 */
+  left: 500px;
+  width: 5%;
+  max-width: 100%; /* 防止树的宽度超过容器 */
+  height: auto; /* 保持比例 */
+}
+
+/* 公共樣式 */
+.road-element {
+  position: absolute;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 8px;
+  color: #F3F0E3;
+}
+
+/* 早晨樣式 */
+.morning-style {
+  background-color: #E9BD53;
+}
+
+/* 晚間樣式 */
+.evening-style {
+  background-color: #57AE09;
+}
+
+
+    .button1 {
+    top: 200px;
+    left: 700px;
+    font-family: 'Noto Sans TC', sans-serif;
+    width: 200px;         /* Increased button width */
+    height: 200px;        /* Increased button height */
+    border-radius: 50%;   /* Keeps the button circular */
+    display: flex;        /* Centers content inside the button */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;     /* Hides anything overflowing the circle */
+    cursor: pointer;     /* Change cursor to clickable style */
+    border: none;         /* Removes border */
+}
+
+.button1 img {
+    max-width: 100%;      /* Ensures the image doesn't exceed button's width */
+    max-height: 100%;     /* Ensures the image doesn't exceed button's height */
+    object-fit: contain;  /* Maintains the aspect ratio of the image */
+}
+
+    .button2 {
+      top: 520px;
+      left: 430px;
+      font-family: 'Noto Sans TC', sans-serif;
+      width: 200px;         /* 設定按鈕的寬度 */
+      height: 200px;        /* 設定按鈕的高度，與寬度相等 */
+      border-radius: 50%;   /* 使按鈕變成圓形 */
+      display: flex;        /* 使內部元素（例如文字或圖片）居中 */
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;     /* 防止內容超出圓形邊界 */
+      cursor: pointer;      /* 滑鼠指標變成可點擊樣式 */
+      border: none;         /* 移除按鈕邊框 */
+    }
+
+.button2 img {
+    max-width: 100%;      /* Ensures the image doesn't exceed button's width */
+    max-height: 100%;     /* Ensures the image doesn't exceed button's height */
+    object-fit: contain;  /* Maintains the aspect ratio of the image */
+}
+
+    .button3 {
+      top: 780px;
+      left: 900px;
+      font-family: 'Noto Sans TC', sans-serif;
+      width: 200px;         /* 設定按鈕的寬度 */
+      height: 200px;        /* 設定按鈕的高度，與寬度相等 */
+      border-radius: 50%;   /* 使按鈕變成圓形 */
+      display: flex;        /* 使內部元素（例如文字或圖片）居中 */
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;     /* 防止內容超出圓形邊界 */
+      cursor: pointer;      /* 滑鼠指標變成可點擊樣式 */
+      border: none;         /* 移除按鈕邊框 */
+    }
+
+.button3 img {
+    max-width: 100%;      /* Ensures the image doesn't exceed button's width */
+    max-height: 100%;     /* Ensures the image doesn't exceed button's height */
+    object-fit: contain;  /* Maintains the aspect ratio of the image */
+}
+
+    .button4 {
+      top: 930px;
+      left: 780px;
+      font-family: 'Noto Sans TC', sans-serif;
+      width: 200px;         /* 設定按鈕的寬度 */
+      height: 200px;        /* 設定按鈕的高度，與寬度相等 */
+      border-radius: 50%;   /* 使按鈕變成圓形 */
+      display: flex;        /* 使內部元素（例如文字或圖片）居中 */
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;     /* 防止內容超出圓形邊界 */
+      cursor: pointer;      /* 滑鼠指標變成可點擊樣式 */
+      border: none;         /* 移除按鈕邊框 */
+    }
+
+    .button3e {
+      top: 750px;
+      left: 700px;
+      font-family: 'Noto Sans TC', sans-serif;
+      width: 200px;         /* 設定按鈕的寬度 */
+      height: 200px;        /* 設定按鈕的高度，與寬度相等 */
+      border-radius: 50%;   /* 使按鈕變成圓形 */
+      display: flex;        /* 使內部元素（例如文字或圖片）居中 */
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;     /* 防止內容超出圓形邊界 */
+      cursor: pointer;      /* 滑鼠指標變成可點擊樣式 */
+      border: none;         /* 移除按鈕邊框 */
+    }
+
+.button3e img {
+    max-width: 100%;      /* Ensures the image doesn't exceed button's width */
+    max-height: 100%;     /* Ensures the image doesn't exceed button's height */
+    object-fit: contain;  /* Maintains the aspect ratio of the image */
+}
+
+    .button4e {
+      top: 900px;
+      left: 1010px;
+      font-family: 'Noto Sans TC', sans-serif;
+      width: 200px;         /* 設定按鈕的寬度 */
+      height: 200px;        /* 設定按鈕的高度，與寬度相等 */
+      border-radius: 50%;   /* 使按鈕變成圓形 */
+      display: flex;        /* 使內部元素（例如文字或圖片）居中 */
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;     /* 防止內容超出圓形邊界 */
+      cursor: pointer;      /* 滑鼠指標變成可點擊樣式 */
+      border: none;         /* 移除按鈕邊框 */
+    }
+
+.button4e img {
+    max-width: 100%;      /* Ensures the image doesn't exceed button's width */
+    max-height: 100%;     /* Ensures the image doesn't exceed button's height */
+    object-fit: contain;  /* Maintains the aspect ratio of the image */
+}
+
+/* 修改背景顏色 */
+.modal {
+    display: none; /* 初始隐藏 */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* 背景透明黑 */
+  font-family: 'Noto Sans TC', sans-serif;
+  }
+
+/* 黑色上方區域和關閉按鈕 */
+.modal-header {
+  background-color: #3c4040;
+  height: 40px;
+  width: 100%; /* 讓黑色長條寬度為整個視窗 */
+  position: absolute; /* 固定在視窗最上方 */
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top-left-radius: 10px; /* 圓角邊框 */
+  border-top-right-radius: 10px; /* 圓角邊框 */
+}
+
+.close {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 20px; /* 關閉按鈕與右側間距 */
+}
+
+.close:hover,
+.close:focus {
+  color: green;
+  text-decoration: none;
+}
+
+.modal-content {
+  background-color: #b9cdcd; /* 淺藍色 */
+  margin: 10% auto 5%; /* 將上方 margin 調大，例如設為 10% */
+  padding: 60px 20px 20px;
+  border: 1px solid #888;
+  width: 60%;
+  height: 65%;
+  display: flex;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+
+
+/* 左側攤販資訊 */
+.modal-left {
+  width: 25%;
+  padding: 20px;
+  background-color: #F0EFE6; /* 白色背景區分主背景 */
+  border-radius: 10px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.vendor-image {
+  display: block; /* 設定為區塊元素 */
+  width: 70%;
+  height: auto;
+  margin: 0 auto; /* 上下 margin 為 0，左右自動置中 */
+  border-radius: 10px;
+}
+
+.image-container {
+  text-align: center; /* 将文本对齐设置为中心 */
+}
+
+.vendor-image1 {
+  display: block; /* 設定為區塊元素 */
+  width: 70%;
+  height: auto;
+  margin: 0 auto; /* 上下 margin 為 0，左右自動置中 */
+  border-radius: 10px;
+}
+
+#vendor-name {
+    text-align: center;
+    font-size:20px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+#vendor-name-evening {
+    text-align: center;
+    font-size:20px;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.left-mes{
+  margin-top:0px;
+  font-family: 'Noto Sans TCr', sans-serif;
+}
+
+.tag {
+  background-color: #EF8659;
+  color: #F0EFE6;
+  padding: 5px 10px;
+  border-radius: 50px;
+  font-size:12px;
+  display: inline-block;
+  margin-top: 0.5px; /* 調整 margin-top，減少與上一元素的距離 */
+  margin-bottom: 0px; /* 增加 margin-bottom，控制與下一元素的距離 */
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+p {
+  font-size: 14px;
+  margin-top: 3px; /* 可選，控制 p 元素與上方的距離 */
+  margin-bottom: 10px; /* 可選，控制 p 元素與下方的距離 */
+  margin-left:9px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* 中間聊天室 */
+.modal-center {
+  width: 50%;
+  padding: 20px;
+  overflow: hidden; /* 防止中间部分撑大 */
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+#chat-container-morning, #chat-container-evening {
+  margin-top: 70px; /* 控制聊天内容与上方的距离 */
+  padding: 10px;
+  height: 400px; /* 固定聊天内容高度 */
+  overflow-y: auto; /* 启用垂直滚动 */
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* 自定義滾動條 */
+#chat-container-morning::-webkit-scrollbar,
+#chat-container-evening::-webkit-scrollbar {
+  width: 6px; /* 滾動條的寬度 */
+}
+
+/* 滾動條的背景 */
+#chat-container-morning::-webkit-scrollbar-track,
+#chat-container-evening::-webkit-scrollbar-track {
+  background: #f1f1f1; /* 滾動條背景顏色 */
+  border-radius: 4px; /* 滾動條圓角 */
+}
+
+/* 滾動條的滑塊 */
+#chat-container-morning::-webkit-scrollbar-thumb,
+#chat-container-evening::-webkit-scrollbar-thumb {
+  background: #888; /* 滾動條顏色 */
+  border-radius: 4px; /* 滾動條圓角 */
+}
+
+/* 滾動條的滑塊在懸停時的顏色 */
+#chat-container-morning::-webkit-scrollbar-thumb:hover,
+#chat-container-evening::-webkit-scrollbar-thumb:hover {
+  background: #555; /* 懸停時的顏色 */
+}
+
+
+h4 {
+  position: static; /* 让标题不会受到固定位置影响 */
+  font-family: 'Noto Sans TC', sans-serif;
+  margin-top:-5px;
+}
+
+.chat-message {
+  display: flex;
+  align-items: flex-end;
+  font-size:14px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.chat-bubble {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 5px;
+  max-width: 50%;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.sender .chat-bubble {
+  background-color: #f0efe6; /* 發送者的泡泡顏色 */
+  position: relative;
+  margin-left: 0px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.receiver .chat-bubble {
+  background-color: #d7f135; /* 接收者的泡泡顏色 */
+  position: relative;
+  margin-left: auto; /* 自动调整左侧距离 */
+  margin-right: 0; /* 确保右侧没有多余的空间 */
+  float: right; /* 使气泡靠右对齐 */
+  clear: both; /* 清除浮动影响，确保每个气泡在新行上 */
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 5px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+/* 右側好友列表 */
+.modal-right {
+  width: 20%;
+  padding: 20px;
+  background-color: #F0EFE6; /* 白色背景區分主背景 */
+  border-radius: 10px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+h4 {
+  margin-bottom: 20px; /* 增加標題下方距離 */
+}
+
+.friends-list {
+  list-style: none;
+  padding: 0;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.friend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.friend-item img {
+  max-width: 60px; /* 最大寬度 */
+  max-height: 60px; /* 最大高度 */
+  border-radius: 50%; /* 保持圓形 */
+  margin-right: 10px; /* 與右側元素的間距 */
+}
+
+.switch-toggle {
+  --width: 260px;
+  --height: 50px;
+  --offset: 0px;
+  --radius: 10px;
+
+  position: fixed;
+  top: 80px;
+  right: 100px;
+
+  width: var(--width);
+  height: var(--height);
+  padding: var(--offset);
+  background: #F0EFE6;
+  border-radius: var(--radius);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  z-index: 1;
+
+  input[type="checkbox"] {
+    cursor: pointer;
+    position: absolute;
+    inset: 0;
+    appearance: none;
+    z-index: 1;
+    
+    
+
+    &:checked {
+      + label.switch-toggle-label {
+        &:before {
+          translate: 100% 0; /* 移動到右側 */
+          border-top-left-radius: 0; /* 去掉左側圓角 */
+          border-bottom-left-radius: 0; /* 去掉左側圓角 */
+        }
+        span {
+          &:nth-child(1) {
+            color: #E08159; /* 切換後第一個標籤的顏色 */
+          }
+          &:nth-child(2) {
+            color: #F0EFE6; /* 切換後第二個標籤的顏色 */
+          }
+        }
+      }
+    }
+
+    & + label.switch-toggle-label {
+      position: absolute;
+      inset: var(--offset, 0);
+      padding: 10px 0;
+      display: grid;
+      gap: 2px;
+      grid-auto-flow: column;
+      grid-auto-columns: 1fr;
+      place-items: center;
+      user-select: none;
+      pointer-events: none;
+
+      &:before {
+        content: "";
+        position: absolute;
+        width: 50%;
+        inset: 0;
+        background: #E08159;
+        border-radius: calc(var(--radius) - var(--offset)); /* 初始圓角設定 */
+        box-shadow: 0px 10px 20px 0px rgba(16, 39, 68, 0.1);
+        translate: 0 0;
+        transition: translate 250ms cubic-bezier(0.93, 0.26, 0.07, 0.69);
+      }
+
+      span {
+        position: relative;
+        transition: 200ms linear;
+
+        &:nth-child(1) {
+          color: #F0EFE6; /* 初始顏色 */
+        }
+
+        &:nth-child(2) {
+          color: #E08159; /* 初始顏色 */
+        }
+      }
+    }
+  }
+}
+
+/* 左側開關時，右側的邊角變為直角 */
+input[type="checkbox"]:not(:checked) + label.switch-toggle-label:before {
+  border-top-right-radius: 0; /* 去掉右側的圓角 */
+  border-bottom-right-radius: 0; /* 去掉右側的圓角 */
+}
+
+/* 右側開關時，左側的邊角變為直角 */
+input[type="checkbox"]:checked + label.switch-toggle-label:before {
+  border-top-left-radius: 0; /* 去掉左側的圓角 */
+  border-bottom-left-radius: 0; /* 去掉左側的圓角 */
+}
+
+
+.hidden { display: none; }
+
+.market-content {
+      height: 100vh;
+      overflow: hidden;
+    }
+
+.active {
+      display: block;
+    }
+
+.icon-box {
+  display: flex;
+  position: relative;
+  align-items: center; /* 垂直居中 */
+  margin-top: 50px; /* 與聊天室的距離 */
+  padding: 10px;
+  border-radius: 6px; /* 圓角 */
+  background-color: #f0efe6; /* 背景顏色 */
+}
+
+.icons {
+  display: flex;
+  align-items: center; /* 垂直居中 */
+}
+
+.icon1{
+  width: 30px; /* 圖標的寬度 */
+  height: 30px; /* 圖標的高度 */
+  margin: 0 0px; /* 圖標間距 */
+  margin-top:-4px;
+}
+
+.icon2 {
+  width: 15px; /* 圖標的寬度 */
+  height: 15px; /* 圖標的高度 */
+  margin: 0 5px; /* 圖標間距 */
+}
+
+.icon3 {
+  position: absolute; /* 絕對定位 */
+  right: 10px; /* 距離容器右邊的距離 */
+  width: 20px; /* 圖標的寬度 */
+  height: 20px; /* 圖標的高度 */
+}
+
+.divider {
+  width: 2px; /* 槓槓的寬度 */
+  height: 15px; /* 槓槓的高度 */
+  margin: 5px 5px; /* 圖標間距 */
+  background-color: #888; /* 槓槓顏色 */
+}
+  
+#dynamic-message {
+  font-size: 14px; /* 字體大小 */
+  color: #333; /* 文字顏色 */
+  white-space: nowrap; /* 不換行 */
+  margin: 0 10px; /* 與槓槓的距離 */
+}
