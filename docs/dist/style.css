@@ -220,7 +220,7 @@ nav .o:hover {
   position: relative;
   top: 100px; /* 调整位置 */
   left: 100px; /* 调整水平位置 */
-  transform: scale(1); /* 放大图片 1.5 倍 */
+  transform: scale(1.2); /* 放大图片 1.5 倍 */
   transform-origin: center; /* 从中心点放大 */
 }
 
