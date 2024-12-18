@@ -250,7 +250,7 @@ nav .o:hover {
 .road-wom {
   position: absolute;
   top: 550px;
-  left: 1350px;
+  left: 1150px;
   width: 20%;
   height: auto;
   transform: scale(0.5); /* 縮小到80% */
