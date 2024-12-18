@@ -282,8 +282,8 @@ nav .o:hover {
 
 .road-man2 {
   position: absolute; /* 使用绝对定位来精确控制位置 */
-  top: 800px; /* 根据需求调整位置 */
-  left: 150px;
+  top: 1000px; /* 根据需求调整位置 */
+  left: 100px;
   width: 18%;
   max-width: 50%; /* 防止树的宽度超过容器 */
   height: auto; /* 保持比例 */
@@ -659,7 +659,7 @@ p {
 }
 
 #chat-container-morning, #chat-container-evening {
-  margin-top: 40px; /* 控制聊天内容与上方的距离 */
+  margin-top: 30px; /* 控制聊天内容与上方的距离 */
   padding: 10px;
   height: 400px; /* 固定聊天内容高度 */
   overflow-y: auto; /* 启用垂直滚动 */
